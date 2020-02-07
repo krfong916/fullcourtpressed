@@ -1,0 +1,19 @@
+- [ ] pubsub
+- [ ] debounce
+- [ ] this and exercises
+- [ ] scope and closure
+- [ ] event loop and setTimeout gotchas
+- [ ] event bubbling and delegation
+- [ ] Promises, async/await
+- [ ] object creation and inheritance
+- [ ] cors
+- [ ] currying
+- [ ] performance optimization
+- [ ] build message app
+- [ ] build amazon recommendation
+- [ ] build twitter
+- [ ] build parking lot
+- [ ] build elevator
+- [ ] Consistent Hashing
+- [ ] Distributed Systems
+
