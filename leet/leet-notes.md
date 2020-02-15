@@ -4,6 +4,12 @@
 - must work with native types in order to reverse integer
 - think modulo, deriving tens place, accounting for overflow
 
+21. Merge Two Sorted Lists
+
+- **Merge Sort Variant**
+- Can you solve in one pass?
+- Use the finger-weave technique for list one and two
+
 23. Merge K Sorted Lists
 
 - **Min-Heap or Finger-Weave**
