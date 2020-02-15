@@ -24,8 +24,6 @@ class Solution {
     return dummy.next;
   }
 
-  // base case: initial list, l1 is defined, l2 is not
-  // we assume l2 will always be defined
   private void weave(ListNode list, PriorityQueue<ListNode> minHeap) {
     while (list != null) {
       minHeap.add(list);
