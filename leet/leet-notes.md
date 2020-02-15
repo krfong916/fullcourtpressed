@@ -7,8 +7,8 @@
 23. Merge K Sorted Lists
 
 - **Min-Heap or Finger-Weave**
+- consider cycles and creating new nodes
 - if finger-weave, careful with dummy head and the list representation you return
-- min-heap, consider cycles
 - variation of merge 2 sorted lists
 
 54: Spiral Matrix
