@@ -4,6 +4,12 @@
 - must work with native types in order to reverse integer
 - think modulo, deriving tens place, accounting for overflow
 
+13. Roman to integer
+
+- **Case Analysis**
+- solve general cases, then discuss edge
+- save room for add-on, integer-to-roman
+
 21. Merge Two Sorted Lists
 
 - **Merge Sort Variant**
