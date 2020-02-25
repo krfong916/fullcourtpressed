@@ -39,9 +39,30 @@
 - **Dynamic Programming**
 - After defining the recurrence relation, careful implementing the relation. i.e. fill `[x][0]`, `[0][y]`, then the recurrence relation
 
+70. Climbing Stairs
+
+- **Dynamic Programming**
+- We only need to keep track of the last two steps to reach the current step i.e. DP(i) = DP(i-1) + DP(i-2)
+- How about representing the preceeding calculations of steps as an array?
+  - This will take O(n) space, can we do this in constant space O(1)?
+- hint, this a similar to fibonacci sequence problem
+
+108. Convert Sorted Array to Binary Search Tree
+
+109. House Robber 1
+
+110. Implement a Trie
+
 215: Kth largest element in an array
 
 - **Sorting**
 - Sorting or priority queues
 - O(nlogk) time and O(n) space if we use a priority queue as a max-heap
 - Can reduce time if we use quicksort partitioning scheme. We can do this O(n) time - how? see https://youtu.be/hGK_5n81drs?t=1251
+
+295. Find Median from Data Stream
+
+- We can use a priority queue for operations such as finding a running median, avg., min., and max
+- If we use two heaps, a max-heap for left and min-heap for right - then we can perform operations such as insertion in O(logn) time
+  - The worst-case runtime of the algorithm is O(log n), since we need at most one swap on each level of a heap on the path from the inserted node to the root.
+- finding the median can be calculated in constant time because we impose a median invariant on insertion
