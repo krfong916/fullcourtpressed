@@ -59,6 +59,14 @@
 - Consider the comparison of uppercase and non-uppercase characters
 - Identify what the conditions are to increment/decrement pointers
 
+153: Find minimum in rotated sorted array
+
+- Binary Search
+- what is the condition that the target element is the min
+- what is the condition that the minimum is in the left partition or in the right partition?
+- consider when we have a fully rotated cycle (sorted array)
+- and or only a rotated, non-full cycle array
+
 215: Kth largest element in an array
 
 - **Sorting**
