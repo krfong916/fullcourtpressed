@@ -22,7 +22,7 @@ class Solution {
         end--;
         continue;
       }
-      
+
       // else, if both characters are alpha-numeric
       // then compare - if the characters do not equal each other
       if (str[start] != str[end]) {
@@ -30,11 +30,11 @@ class Solution {
       }
       // increment and decrement the pointers
       start++;
-      end--;  
+      end--;
     }
     return true;
   }
-  
+
   private boolean isAlphaNum(char c) {
     if (Character.isLetter(c) || Character.isDigit(c)) {
       return true;
@@ -42,5 +42,5 @@ class Solution {
       return false;
     }
   }
-  
+
 }
