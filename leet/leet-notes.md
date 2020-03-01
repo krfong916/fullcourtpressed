@@ -29,6 +29,11 @@
 - can use enum and object-oriented here
 - careful to think of edge cases (many)
 
+56: Merge Intervals
+
+- Greedy Algorithm: the greedy choice property is always choose maximum end times
+- Sort by start time so we only have two kinds of interval cases - disjoint and overlapping
+
 62: Unique Paths
 
 - **Dynamic Programming**
@@ -49,9 +54,18 @@
 
 108: Convert Sorted Array to Binary Search Tree
 
+- what are the base cases
+- how can we solve the left subtree and right subtree recursively?
+
 109: House Robber 1
 
 110: Implement a Trie
+
+- a trie is a structure for fast retrieval checks for prefixes
+- we "chain letters" using a tree structure
+- we can implement using a list of nodes. At each level there is a list of size the size of the alphabet
+- each node in the tree structure contains a letter, a pointer to the child node
+- We identify a word as the ending of a character sequence. We can use and store a boolean value within a local node in a list
 
 125: Valid Palindrome
 
