@@ -88,6 +88,10 @@
 - O(nlogk) time and O(n) space if we use a priority queue as a max-heap
 - Can reduce time if we use quicksort partitioning scheme. We can do this O(n) time - how? see https://youtu.be/hGK_5n81drs?t=1251
 
+230: Kth smallest in a bst
+
+- What kind of traversal visits nodes in order of smallest to largest?
+
 295: Find Median from Data Stream
 
 - We can use a priority queue for operations such as finding a running median, avg., min., and max
