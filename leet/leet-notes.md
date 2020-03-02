@@ -119,3 +119,9 @@
 - can we try greedy here?
 - what is the condition that satisfies an overlapping interval?
 - conversely, what is the condition that satisfies a non-overlapping interval?
+
+739: Daily Temperatures
+
+- **Revisit**
+- we can use a sliding window for this problem - but this is non-optimal `O(n^2)` worst case
+- how can we use a stack to improve the time complexity to O(n)? and what should the stack store?
