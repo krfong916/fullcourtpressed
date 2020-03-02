@@ -23,6 +23,11 @@
 - if finger-weave, careful with dummy head and the list representation you return
 - variation of merge 2 sorted lists
 
+39: Combination Sum
+
+- classic backtracking (exhaustive search, choose/unchoose) problem
+- how about using a reference to the current index?
+
 54: Spiral Matrix
 
 - **2D matrix**
