@@ -113,3 +113,9 @@
 
 - this can be solved without recursion or loops
 - how about using logarithm properties?
+
+436: Non-overlapping Intervals
+
+- can we try greedy here?
+- what is the condition that satisfies an overlapping interval?
+- conversely, what is the condition that satisfies a non-overlapping interval?
