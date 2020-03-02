@@ -1,7 +1,7 @@
 class Solution {
   public int reverse(int n) {
     long reverse = 0;
-    
+
     while (n != 0) {
       reverse = (n % 10) + (reverse * 10);
       n /= 10;

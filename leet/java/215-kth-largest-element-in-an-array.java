@@ -1,7 +1,7 @@
 class Solution {
   public int findKthLargest(int[] nums, int k) {
     int start = 0;
-    int end = nums.length-1;
+    int end = nums.length - 1;
     int kthLargestIndex = nums.length - k;
     Random random = new Random();
     while (start <= end) {

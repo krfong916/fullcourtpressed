@@ -1,16 +1,16 @@
 class TrieNode {
   boolean isEndOfWord;
   TrieNode[] children;
-  
+
   public TrieNode() {
     this.isEndOfWord = false;
     this.children = new TrieNode[26];
   }
-  
+
   public int getIndex(char ch) {
     return ch - 'a';
   }
-  
+
   public boolean hasChild(char ch) {
     int index = this.getIndex(ch);
     if (children[index] != null) {
@@ -19,12 +19,12 @@ class TrieNode {
       return false;
     }
   }
-  
+
   public TrieNode getChildren(char c) {
     int index = this.getIndex(c);
     return children[index];
   }
-  
+
   public void insert(char c) {
     int index = this.getIndex(c);
     children[index] = new TrieNode();
@@ -33,46 +33,46 @@ class TrieNode {
 
 class Trie {
 
-    private TrieNode root;
-    
-    public Trie() {
-      root = new TrieNode();
+  private TrieNode root;
+
+  public Trie() {
+    root = new TrieNode();
+  }
+
+  public void insert(String word) {
+    TrieNode current = root;
+    for (char c : word.toCharArray()) {
+      if (current.hasChild(c) == false) {
+        current.insert(c);
+      }
+      current = current.getChildren(c);
     }
-    
-    public void insert(String word) {
-      TrieNode current = root;
-      for (char c : word.toCharArray()) {
-        if (current.hasChild(c) == false) {
-          current.insert(c);
-        }
+    current.isEndOfWord = true;
+  }
+
+  public boolean search(String word) {
+    TrieNode current = root;
+    for (char c : word.toCharArray()) {
+      if (current.hasChild(c)) {
         current = current.getChildren(c);
+      } else {
+        return false;
       }
-      current.isEndOfWord = true;
     }
-    
-    public boolean search(String word) {
-      TrieNode current = root;
-      for (char c : word.toCharArray()) {
-        if (current.hasChild(c)) {
-          current = current.getChildren(c);
-        } else {
-          return false;
-        }
+    return current.isEndOfWord;
+  }
+
+  public boolean startsWith(String prefix) {
+    TrieNode current = root;
+    for (char c : prefix.toCharArray()) {
+      if (current.hasChild(c)) {
+        current = current.getChildren(c);
+      } else {
+        return false;
       }
-      return current.isEndOfWord;
     }
-    
-    public boolean startsWith(String prefix) {
-      TrieNode current = root;
-      for (char c : prefix.toCharArray()) {
-        if (current.hasChild(c)) {
-          current = current.getChildren(c);
-        } else {
-          return false;
-        }
-      }
-      return current.isEndOfWord;
-    }
+    return current.isEndOfWord;
+  }
 }
 
 /**

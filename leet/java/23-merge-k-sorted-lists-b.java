@@ -8,7 +8,7 @@
  */
 class Solution {
   public ListNode mergeKLists(ListNode[] lists) {
-    PriorityQueue<ListNode> minHeap = new PriorityQueue<ListNode>((a,b) -> a.val - b.val);
+    PriorityQueue<ListNode> minHeap = new PriorityQueue<ListNode>((a, b) -> a.val - b.val);
     for (ListNode node : lists) {
       if (node != null) {
         weave(node, minHeap);

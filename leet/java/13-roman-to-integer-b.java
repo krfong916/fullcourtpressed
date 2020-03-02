@@ -30,20 +30,20 @@ class Solution {
         i++;
       } else {
         switch (curr) {
-          case 'I':
-            intRepresentation += 1;
-          case 'V':
-            intRepresentation += 5;
-          case 'X':
-            intRepresentation += 10;
-          case 'L':
-            intRepresentation += 50;
-          case 'C':
-            intRepresentation += 100;
-          case 'D':
-            intRepresentation += 500;
-          case 'M':
-            intRepresentation += 1000;
+        case 'I':
+          intRepresentation += 1;
+        case 'V':
+          intRepresentation += 5;
+        case 'X':
+          intRepresentation += 10;
+        case 'L':
+          intRepresentation += 50;
+        case 'C':
+          intRepresentation += 100;
+        case 'D':
+          intRepresentation += 500;
+        case 'M':
+          intRepresentation += 1000;
         }
       }
     }
