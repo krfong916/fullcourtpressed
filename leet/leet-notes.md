@@ -52,6 +52,11 @@
   - This will take O(n) space, can we do this in constant space O(1)?
 - hint, this a similar to fibonacci sequence problem
 
+94: Binary Tree Inorder Traversal
+
+- Convert recursive algorithm to iterative
+- Careful how you model visiting a node i.e. what indicates when we should add the node as visited, and when to add new nodes on to the stack
+
 108: Convert Sorted Array to Binary Search Tree
 
 - what are the base cases
