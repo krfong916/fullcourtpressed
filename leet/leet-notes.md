@@ -88,7 +88,7 @@
 - O(nlogk) time and O(n) space if we use a priority queue as a max-heap
 - Can reduce time if we use quicksort partitioning scheme. We can do this O(n) time - how? see https://youtu.be/hGK_5n81drs?t=1251
 
-230: Kth smallest in a bst
+230: Kth Smallest in a BST
 
 - What kind of traversal visits nodes in order of smallest to largest?
 
@@ -98,3 +98,8 @@
 - If we use two heaps, a max-heap for left and min-heap for right - then we can perform operations such as insertion in O(logn) time
   - The worst-case runtime of the algorithm is O(log n), since we need at most one swap on each level of a heap on the path from the inserted node to the root.
 - finding the median can be calculated in constant time because we impose a median invariant on insertion
+
+326: Power of Three
+
+- this can be solved without recursion or loops
+- how about using logarithm properties?
