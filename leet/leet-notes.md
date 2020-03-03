@@ -120,6 +120,11 @@
 - what is the condition that satisfies an overlapping interval?
 - conversely, what is the condition that satisfies a non-overlapping interval?
 
+509: Fibonacci Number
+
+- Think about the how a given subproblem depends on two previous subproblems -> those are your base cases
+- If implemented recursively, can we optimize call stack? Can we optimize space now? How can we improve to constant space and linear time?
+
 739: Daily Temperatures
 
 - **Revisit**
