@@ -7,9 +7,9 @@ class Solution {
     cache.put(2, 1);
     int num = 0;
     for (int i = 2; i < n; i++) {
-      num = cache.get(i-1) + cache.get(i-2);
+      num = cache.get(i - 1) + cache.get(i - 2);
       cache.put(i, num);
     }
-    return cache.get(n-1);
+    return cache.get(n - 1);
   }
 }
