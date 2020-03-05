@@ -125,6 +125,11 @@
 - Think about the how a given subproblem depends on two previous subproblems -> those are your base cases
 - If implemented recursively, can we optimize call stack? Can we optimize space now? How can we improve to constant space and linear time?
 
+617: Merge Two Binary Trees
+
+- Simple case analysis and recursion
+- Hint: define the base cases, then the general case
+
 739: Daily Temperatures
 
 - **Revisit**
