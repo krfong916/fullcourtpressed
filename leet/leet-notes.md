@@ -102,6 +102,13 @@
 
 - What kind of traversal visits nodes in order of smallest to largest?
 
+235: Lowest Common Ancestor of a Binary Search Tree
+
+- Leverage the properties of the binary search tree
+- When do we know the LCA is in the left subtree?
+- When do we know the LCA is in the right subtree?
+- When do we know the LCA is the current node?
+
 295: Find Median from Data Stream
 
 - We can use a priority queue for operations such as finding a running median, avg., min., and max
