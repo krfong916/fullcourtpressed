@@ -83,6 +83,19 @@
 - Consider the comparison of uppercase and non-uppercase characters
 - Identify what the conditions are to increment/decrement pointers
 
+139: Word Break A
+
+- Complexity: `O(length of string * dictionary size)`
+- We know we should perform an equivalency check on a possible substring partition and words in the dictionary. The key to an efficient algorithm is in two parts
+  - a: calculate partitions based on the starting index and the length of a word in the dictionary
+  - b: immediately go to the starting index of the next partition after a partition has been verified
+
+139: Word Break B
+
+- The time is poor if the size of the dictionary is very large for Word Break Solution A
+- To improve upon our algorithm's time, we can make our algorithm a function of the string instead of a function of the dictionary in exchange for using a little more space
+- We can get to an `O(n^2)` runtime where `n` is the length of the string
+
 153: Find minimum in rotated sorted array
 
 - Binary Search
@@ -136,6 +149,11 @@
 
 - Simple case analysis and recursion
 - Hint: define the base cases, then the general case
+
+647: Palindromic Substring
+
+- what are the ways that we can extend the substring?
+- Hint: can we do this without nested loops?
 
 739: Daily Temperatures
 
