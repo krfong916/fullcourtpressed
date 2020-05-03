@@ -57,6 +57,13 @@
   - This will take O(n) space, can we do this in constant space O(1)?
 - hint, this a similar to fibonacci sequence problem
 
+76: Minimum Window Substring
+
+- **Sliding Window**
+- how do we know when we have a valid/invalid window?
+- what are the termination conditions?
+- Careful choosing your loop expressions
+
 94: Binary Tree Inorder Traversal
 
 - Convert recursive algorithm to iterative
