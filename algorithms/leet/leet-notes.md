@@ -141,6 +141,12 @@
 - this can be solved without recursion or loops
 - how about using logarithm properties?
 
+417: Pacific Atlantic Water Flow
+
+- DFS graph traversal
+- What are the conditions that you explore a path? Don't explore a path? When do we mark a cell as visited?
+- It's okay for extra space for an adjancency matrix
+
 436: Non-overlapping Intervals
 
 - can we try greedy here?
