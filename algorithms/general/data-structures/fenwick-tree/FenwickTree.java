@@ -2,15 +2,21 @@ class FenwickTree {
 	public FenwickTree() {}
 	public FenwickTree(long[] values) {}
 
-	public int rangeSum(int begin, int end) {
+	public int rangeQuery(int begin, int end) {
 		// if begin >= 1 and end >= 1, if begin >= getSize() || end >= getSize(), throw an exception
 		// if begin > end, throw an exception
-		// declare range sum variable, sum
-		// while begin <= end
-			// add r[begin] to sum
-			// get least significant bit of begin -> lsb(begin)
-			// begin += lsb(i)
+		// the range sum = prefixSum(end) - prefixSum(begin-1)
 	}
+
+  // cascade down operation
+  private int prefixSum(int i) {
+    // declare sum variable, prefixSum = 0
+    // while i > 0
+      // add r[i] to prefixSum
+      // get least significant bit of i -> lsb(i)
+      // i -= lsb(i)
+    // return prefixSum
+  }
 	public void rangeUpdate(int i, int x) {
 		// if i >= getSize() && i >= 1, throw an exception
 		// while i < getSize()
