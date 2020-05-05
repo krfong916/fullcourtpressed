@@ -19,14 +19,15 @@ An adjacency matrix `A` contains `Θ(V^2)` entries, regardless of the number of 
 Given a graph `G` represented as an adjacency matrix, the time complexity to compute the transpose of `G`, G<sub>T</sub>, is <code>Θ(V<sub>2</sub>)</code>. Observe the following algorithm:
 
 ```java
-for i = 0 to |G|
-  for j = i to |G[i]|
-    swap (i, j) with (j, i)
+  for i = 0 to |G|
+    for j = i to |G[i]|
+      swap (i, j) with (j, i);
 ```
 
 For a given vertex `v`, we do length of `|G[v]|` work. In total, The algorithm does <code>V<sub>2</sub></code>. Thus, the runtime is <code>Θ(V<sub>2</sub>)</code>.
 
 Given a graph `G` represented as an adjacency list, the runtime to compute its tranpose, G<sub>T</sub>, is `Θ(|V| + |E|)`.
+
 Peep the algorithm:
 
 ```java
@@ -36,7 +37,7 @@ Graph adjListTranspose = new Graph(adj.getLength());
 // Compute the transpose of adj
 for every vertex i in adj, from i = 0 to |adj|
   for every edge j in adj[i], from j = 0 to |adj[i]|
-    append new Vertex(i) to the adjListTranspose[j]
+    append new Vertex(i) to the adjListTranspose[j];
 ```
 
 We allocate memory for a new adjacency list that will be the transpose of `G`, this takes `Θ(V)` space. For a given vertex `v`, we do `|adj[v|` work to compute the tranpose, assuming that appending to the tranpose list is a constant operation (like a linked list). If we iterate over all vertices, then our runtime becomes `Θ(|V| + |E|)`.
@@ -271,7 +272,7 @@ DFS-Visit(G, u)
         Print("(u,v) is a Cross Edge")
   color.u = BLACK
   time = time + 1
-  finished.u = time
+  finished.u = time;
 ```
 
 For a depth-first traversal of an undirected graph, recall, there can only exist back and tree edges. If G is undirected, we don't need to make any modifications, note we simply do not label forward or cross edges, nor color a vertex black.
@@ -296,7 +297,7 @@ DFS(G)
 DFS-Visit(G, u)
   ...
   for v ∈ G.u
-      v.cc = u.cc
+      v.cc = u.cc;
 ```
 
 ## 22.3-13
@@ -318,18 +319,29 @@ what's the difference between a singly connected graph and a bipartite graph?
 
 ## 22.4-3
 
-**Q:**
-**A:**
+**Q:** Give an algorithm that determines whether or not a given undirected graph `G = (V,E)` contains a cycle. Your algorithm should run in `O(V)` time, independent of `|E|`.
+**A:** Confused on how to construct an cycle detection algorithm that runs in `O(V)` time. The best I can do is use a modified structure of a depth-first search to detect cycles, however we still traverse the length of adjacency lists of a vertex `v`. Must revisit this question later...
 
 ## 22.4-4
 
-**Q:**
-**A:**
+**Q:** Prove or disprove: If a directed graph `G` contains cycles, then `topological-sort(G)` produces a vertex ordering that **minimizes** the number of "bad" edges that are inconsistent with the ordering produced
+
+**A:** A topological sort of the directed graph with cycles `G` produces a list structure, or a linear ordering of vertices. We consider "bad" edges to be the edges that span from right to left. For a directed graph, there can be many possible valid topological orderings; therefore, consist of different numbers of "bad" edges. Thus, a topological sort does not minimize the number of "bad" edges.
 
 ## 22.4-5
 
-**Q:**
-**A:**
+**Q:** Another way to perform topological sorting on a directed acyclic graph `G = (V,E)` is to repeatedly find a vertex of in-degree 0, output it, and remove it and
+all of its outgoing edges from the graph. Explain how to implement this idea so
+that it runs in time `O(V+E)`. What happens to this algorithm if `G` has cycles?
+
+**A:** First, we have to find a vertex with an in-degree of 0. We initialize a dictionary (the underlying implementation can be an array, hashmap, etc.) that will use the vertex id as the key and the in-degree count as the value. To construct our dictionary, we traverse every adjacency list of every vertex in `O(V+E)` time and use `O(V)` space for storage.
+We begin our algorithm by declaring a source vertex, `s`. `s` will be the result of scanning our dictionary for the first vertex with the in-degree count of 0, this will take `O(V)` time.
+Then, we initialize a queue. The queue will be used to maintain the collection of vertices with an in-degree of 0.
+Place `s` in the queue. 
+While the queue is not null, dequeue and call the result vertex `v`.
+Iterate over the adjacency list of vertex v.
+Lookup each vertex in the dictionary and decrease the in-degree count by 1.
+
 
 ## 22.5-1
 
@@ -360,3 +372,7 @@ what's the difference between a singly connected graph and a bipartite graph?
 
 **Q:**
 **A:**
+### 22.3-13
+
+### 22.4-2
+
