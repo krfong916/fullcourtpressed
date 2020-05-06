@@ -136,6 +136,11 @@
   - The worst-case runtime of the algorithm is O(log n), since we need at most one swap on each level of a heap on the path from the inserted node to the root.
 - finding the median can be calculated in constant time because we impose a median invariant on insertion
 
+303: Range Query Immutable
+
+- The range query immutable structure uses a prefix sum structure, it's an elementary form of dynamic programming.
+- The structure to perform mutable range queries is the more interesting structures i.e. Binary Indexed Trees (Fenwick Trees)
+
 326: Power of Three
 
 - this can be solved without recursion or loops
