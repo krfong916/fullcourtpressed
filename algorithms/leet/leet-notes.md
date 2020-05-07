@@ -141,6 +141,11 @@
 - The range query immutable structure uses a prefix sum structure, it's an elementary form of dynamic programming.
 - The structure to perform mutable range queries is the more interesting structures i.e. Binary Indexed Trees (Fenwick Trees)
 
+307: Range Query Sum Mutable
+
+- The input is 0-indexed, we must change it to be 1-indexed - this is the source of much frustration and confusion
+- Further, the update operation is a set operation, and not an add operation
+
 326: Power of Three
 
 - this can be solved without recursion or loops
