@@ -357,6 +357,8 @@ In short, if a back edge is added to two sccs, we create a cycle, and the two sc
 
 **A:** Assume the strongly connected component <code>C<sub>i</sub></code>. Suppose vertex `v` ∈ <code>C<sub>i</sub></code>. `v` has no outgoing edges, but contains incoming edges - some from vertices that are also in <code>C<sub>i</sub></code>, and some that aren't. If we run DFS in order of increasing finish times, this algorithm will assume `v` is a strongly connected component. Observe, DFS will explore all vertices reachable from `v`, but since there are no outgoing edges of `v`, our DFS will declare `v` a strongly connected component when we know that it is _a_ vertex (one of many) contained in <code>C<sub>i</sub></code>.
 
+Another example, suppose our graph consisted of vertices {1,2,3}, and had edges {2,1}, {2,3}, and {3,2}. Our algorithm gives us two sccs, {1} and {2,3}. A possible DFS could start at 2 and explore vertex 3 before vertex 1. Vertex 3's finish time would be lower than vertex 1 and 2. Another possible DFS could start at 3. If we ran the second DFS in order of increasing finish time, our algorithm would return the entire graph as a single strongly connected component, even though this is clearly not the case since there is no path from 1 to 2, or from 1 to 3.
+
 ## 22.5-4
 
 **Q:** Prove that the number of sccs is the same for G as it is the tranpose of G.
