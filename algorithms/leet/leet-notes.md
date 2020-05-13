@@ -90,6 +90,12 @@
 - Consider the comparison of uppercase and non-uppercase characters
 - Identify what the conditions are to increment/decrement pointers
 
+133: Clone Graph
+
+- This problem can be solved two ways, BFS and DFS
+- Hint: Regardless of the graph traversal we chooose, what structure can we use to store a cloned node, and build the neighbors list of a cloned node? Note, the presence of the cloned node within this structure implies that we have visited the node already
+- Using a DFS to solve this problem is perhaps the more challenging approach because the algorithm does not follow a textbook DFS "so to speak"
+
 139: Word Break A
 
 - Complexity: `O(length of string * dictionary size)`
