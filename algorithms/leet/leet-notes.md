@@ -64,6 +64,12 @@
 - what are the termination conditions?
 - Careful choosing your loop expressions
 
+79: Word Search
+
+- We must recognize that this problem is a backtracking problem, but also, it's a choose/unchoose problem.
+- In a DFS, our goal is to find if a path is reachable from a source vertex to a destination vertex. However, this is not a graph traversal problem - it's a backtracking problem i.e. the choose/unchoose component.
+- We must find a _distinct_ combination of characters, this indicates the problem is a backtracking problem
+
 94: Binary Tree Inorder Traversal
 
 - Convert recursive algorithm to iterative
