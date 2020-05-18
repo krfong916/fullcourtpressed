@@ -90,6 +90,11 @@
 - each node in the tree structure contains a letter, a pointer to the child node
 - We identify a word as the ending of a character sequence. We can use and store a boolean value within a local node in a list
 
+112: Path Sum
+
+- A tree problem: case analysis and defining states
+- Recognize self-similarity
+
 125: Valid Palindrome
 
 - Classic string problem
