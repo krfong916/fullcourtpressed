@@ -163,6 +163,14 @@
 - this can be solved without recursion or loops
 - how about using logarithm properties?
 
+404: Sum of Left Leaves
+
+- We can process a tree using a queue
+  - The order that we addi to the queue determines the kind of tree traversal (pre, in, post)
+- Recursive, think of the cases:
+  - What is my simple base case?
+  - What variables can I use to define a leaf and if the leaf is a left subtree?
+
 417: Pacific Atlantic Water Flow
 
 - DFS graph traversal
