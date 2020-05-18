@@ -101,6 +101,11 @@
 - Consider the comparison of uppercase and non-uppercase characters
 - Identify what the conditions are to increment/decrement pointers
 
+129: Sum Root To Leaf Numbers
+
+- Translate natural/intuitive way into code
+- Define your base cases - what happens at a leaf node?
+
 133: Clone Graph
 
 - This problem can be solved two ways, BFS and DFS
@@ -170,8 +175,8 @@
 
 404: Sum of Left Leaves
 
-- We can process a tree using a queue
-  - The order that we addi to the queue determines the kind of tree traversal (pre, in, post)
+- We can process a tree using a queue for BFS
+  - The order that we add to the queue determines the kind of tree traversal (pre, in, post)
 - Recursive, think of the cases:
   - What is my simple base case?
   - What variables can I use to define a leaf and if the leaf is a left subtree?
