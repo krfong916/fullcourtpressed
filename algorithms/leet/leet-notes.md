@@ -64,6 +64,11 @@
 - what are the termination conditions?
 - Careful choosing your loop expressions
 
+78: Subsets
+
+- Classic backtracking problem **Include/Exclude**
+- Objects in java are pass by reference, so mutating the structure will affect all references to it.
+
 79: Word Search
 
 - We must recognize that this problem is a backtracking problem, but also, it's a choose/unchoose problem.
