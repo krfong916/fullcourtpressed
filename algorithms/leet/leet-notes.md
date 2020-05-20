@@ -75,6 +75,12 @@
 - In a DFS, our goal is to find if a path is reachable from a source vertex to a destination vertex. However, this is not a graph traversal problem - it's a backtracking problem i.e. the choose/unchoose component.
 - We must find a _distinct_ combination of characters, this indicates the problem is a backtracking problem
 
+90: Subsets II
+
+- Backtracking Include/Exclude with variation - must not contain duplicate sequences. For example, our result set cannot contain [1,4] and [4,1] if the input is [1,4,1]
+- How about sorting the array before computing power set? That way we'll only add unique subsets to our dictionary, and process the numbers in increasing order.
+- Example: Given a set [1,4,1], if we sort initially, we'll have [1,1,4]. We'll never end up with [4,1] only [1,4] -> sorted order maintains the uniqueness of subset creation.
+
 94: Binary Tree Inorder Traversal
 
 - Convert recursive algorithm to iterative
