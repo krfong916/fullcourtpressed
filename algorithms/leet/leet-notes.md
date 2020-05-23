@@ -106,6 +106,12 @@
 - A tree problem: case analysis and defining states
 - Recognize self-similarity
 
+124: Binary Tree Maximum Path Sum
+
+- Hint: How do you consider negative values?
+- Hint: What if we use a global variable called max?
+- The direction of you're path does not matter, once a path is chosen cannot have a "backtracking" direction in your path. See https://www.youtube.com/watch?v=mOdetMWwtoI at timestamp 7 min. 25 sec.
+
 125: Valid Palindrome
 
 - Classic string problem
