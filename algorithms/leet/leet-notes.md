@@ -150,6 +150,12 @@
 - consider when we have a fully rotated cycle (sorted array)
 - and or only a rotated, non-full cycle array
 
+167: Two Sum II - Input array is sorted
+
+- Two pointer solution
+- Pay attention to and leverage the details: ascending sorted, result indices must be non-zero (so 1-indexed)
+- As for verbal performance, speak only when there is an insight or progress in thought process - no empty words
+
 215: Kth largest element in an array
 
 - **Sorting**
