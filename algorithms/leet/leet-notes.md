@@ -236,3 +236,11 @@
 - **Revisit**
 - we can use a sliding window for this problem - but this is non-optimal `O(n^2)` worst case
 - how can we use a stack to improve the time complexity to O(n)? and what should the stack store?
+
+937: Reorder Data in Log Files
+
+- This is about knowing the language - java - and the methods available
+- This problem covers:
+  - Case analysis
+  - sorting with comparator class
+  - string and character comparison
