@@ -237,6 +237,12 @@
 - we can use a sliding window for this problem - but this is non-optimal `O(n^2)` worst case
 - how can we use a stack to improve the time complexity to O(n)? and what should the stack store?
 
+819: Most Common Word
+
+- Wow, tests your knowledge of the language
+  - String library, regex matching
+- String manipulation and instantiation of Abstract libraries
+
 937: Reorder Data in Log Files
 
 - This is about knowing the language - java - and the methods available
