@@ -250,3 +250,8 @@
   - Case analysis
   - sorting with comparator class
   - string and character comparison
+
+1024: Last Stone Weight
+
+- Know thy complexity of a heap! See ds/algo heap-notes for proof
+- And yes, a max-heap is exactly that -> the max is first
