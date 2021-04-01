@@ -1,15 +1,46 @@
 const TEXT_NODE = 3;
 const CHILD_NODE = 1;
 
+class Vue {
+  constructor(vueModel) {
+    this.observableDict = new Map();
+    this.subscribers = [];
+    this.publishers = [];
+    this.context = {};
+    this.context.data = {};
+    this.parent = document.getElementById("app");
+    this.eventMap = { "v-on:click": "click" };
+
+    this.subscribers = getSubscribers(this.parent, vueModel.data);
+
+    // create observable for each data property
+    for (let key in vueModel.data) {
+      this.observableDict.set(
+        key,
+        new Observable(this.context, key, vueModel.data[key])
+      );
+    }
+
+    for (let i = 0; i < this.subscribers.length; i++) {
+      this.observableDict.get(this.subscribers[i].key).register(this.subscribers[i]);
+    }
+
+    this.publishers = getPublishers(this.parent, this.eventMap, this.context);
+  }
+}
+
 class Watcher {
   constructor(props) {
     this.node = props.node;
     this.value = props.value;
     this.key = props.key;
     this.id = props.id;
+
+    // console.log(this);
   }
 
   update(newVal) {
+    console.log("updates_context", this);
     /* add validation and diffing here */
     this.value = newVal;
     this.node.textContent = newVal;
@@ -27,7 +58,7 @@ function getSubscribers(parent, data) {
       node: subscriber,
       value: data[subscriber.textContent],
     };
-
+    subscriber.textContent = data[subscriber.textContent];
     watchers.push(new Watcher(props));
   });
   return watchers;
@@ -46,7 +77,7 @@ function dfs(parent, data) {
     let nextSibling = child.nextSibling;
     let list = [];
     if (child.nodeType == TEXT_NODE) {
-      list = getTextNodes(child.textContent);
+      list = getTextNodes(child.textContent, data);
       if (list.length) {
         // clear the text content
         // insert the text nodes
@@ -76,18 +107,18 @@ function dfs(parent, data) {
   return subscriberRef;
 }
 
-function getTextNodes(str) {
+function getTextNodes(str, data) {
   let list = [];
-  let identifiers = ["other", "counter"];
+  let identifiers = Object.keys(data);
   identifiers.forEach((id) => {
     if (str.includes(id)) {
-      list = stringToTextList(str);
+      list = stringToTextList(str, data);
     }
   });
   return list;
 }
 
-function stringToTextList(str) {
+function stringToTextList(str, data) {
   return str
     .split(/({{.*}})/g)
     .filter((item) => item.length > 0)
@@ -97,34 +128,6 @@ function stringToTextList(str) {
       }
       return document.createTextNode(item);
     });
-}
-
-class Vue {
-  constructor(vueModel) {
-    this.observableDict = new Map();
-    this.subscribers = [];
-    this.publishers = [];
-    this.context = {};
-    this.context.data = {};
-    this.parent = document.getElementById("app");
-    this.eventMap = { "v-on:click": "click" };
-
-    this.subscribers = getSubscribers(this.parent, vueModel.data);
-
-    // create observable for each data property
-    for (let key in vueModel.data) {
-      this.observableDict.set(
-        key,
-        new Observable(this.context, key, vueModel.data[key])
-      );
-    }
-
-    for (let i = 0; i < this.subscribers.length; i++) {
-      this.observableDict.get(this.subscribers[i].key).register(this.subscribers[i]);
-    }
-
-    this.publishers = getPublishers(this.parent, this.eventMap, this.context);
-  }
 }
 
 function defineReactive(node, action, directive, context) {
@@ -165,13 +168,17 @@ class Observable {
     this.dependencies = [];
     this.notify = this.notify.bind(this);
     let notify = this.notify;
-
+    /* important for updating the data context */
+    let val = context.data[key];
     Object.defineProperty(context.data, key, {
       get() {
         return value;
       },
       set(newVal) {
-        this.value = newVal;
+        console.log("set", this);
+        value = newVal;
+        /* and not this */
+        // this.value = newVal
         notify(newVal);
       },
       enumerable: true,
@@ -184,9 +191,12 @@ class Observable {
   }
 
   notify(newVal) {
-    console.log(this.dependencies);
+    // console.log(this.dependencies);
+    console.log("notify", this);
+    this.value = newVal;
     for (let dependency of this.dependencies) {
       dependency.update(newVal);
+      // dependency.update.call(this, newVal);
     }
   }
 }
@@ -194,7 +204,7 @@ class Observable {
 new Vue({
   el: "#app",
   data: {
-    counter: 0,
-    other: 10,
+    counter: 1,
+    other: 1,
   },
 });

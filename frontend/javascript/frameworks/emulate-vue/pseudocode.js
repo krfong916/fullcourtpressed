@@ -1,3 +1,76 @@
+// Demonstrates pub/sub event emitter
+const app = document.getElementById("app");
+
+//let text = app.firstChild.textContent.setAttribute('test')
+
+const Vue = function Vue(obj) {
+  let context = {};
+  context["data"] = {};
+  let subscribers = getSubscribers();
+  context["subscribers"] = subscribers;
+
+  context.notify = function () {
+    this.subscribers.forEach((subscriber) => {
+      subscriber.update();
+    });
+  };
+  context.notify.bind(context);
+
+  for (let key in obj.data) {
+    context.data[key] = obj.data[key];
+    console.log(context.data);
+    modProp(context, key);
+  }
+  const app = document.getElementById("app");
+  app.addEventListener("click", emit.bind(context));
+};
+
+function getSubscribers() {
+  let subscribers = [];
+  for (let i = 1; i <= 3; i++) {
+    subscribers.push(new Subscriber(i));
+  }
+  return subscribers;
+}
+
+class Subscriber {
+  constructor(id) {
+    this.id = id;
+    this.update = this.update.bind(this);
+  }
+  update() {
+    console.log("updated element: " + this.id);
+  }
+}
+
+new Vue({
+  el: "#app",
+  data: {
+    counter: 0,
+    other: 0,
+  },
+});
+
+function emit() {
+  this.data.counter += this.data.other + 1;
+  console.log(this.data.counter);
+}
+
+function modProp(context, key) {
+  let val = context.data[key];
+  Object.defineProperty(context.data, key, {
+    get: function () {
+      return val;
+    },
+    set: function (newVal) {
+      if (newVal <= 10) {
+        val = newVal;
+      }
+      context.notify();
+    },
+  });
+}
+
 // get values from data object
 // create an observable for each value (getter and setter [calls notify function when setter is invoked])
 let observable = new Observable(value);
