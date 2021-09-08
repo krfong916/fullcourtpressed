@@ -19,14 +19,15 @@ An adjacency matrix `A` contains `Θ(V^2)` entries, regardless of the number of 
 Given a graph `G` represented as an adjacency matrix, the time complexity to compute the transpose of `G`, G<sub>T</sub>, is <code>Θ(V<sub>2</sub>)</code>. Observe the following algorithm:
 
 ```java
-for i = 0 to |G|
-  for j = i to |G[i]|
-    swap (i, j) with (j, i)
+  for i = 0 to |G|
+    for j = i to |G[i]|
+      swap (i, j) with (j, i);
 ```
 
 For a given vertex `v`, we do length of `|G[v]|` work. In total, The algorithm does <code>V<sub>2</sub></code>. Thus, the runtime is <code>Θ(V<sub>2</sub>)</code>.
 
 Given a graph `G` represented as an adjacency list, the runtime to compute its tranpose, G<sub>T</sub>, is `Θ(|V| + |E|)`.
+
 Peep the algorithm:
 
 ```java
@@ -36,7 +37,7 @@ Graph adjListTranspose = new Graph(adj.getLength());
 // Compute the transpose of adj
 for every vertex i in adj, from i = 0 to |adj|
   for every edge j in adj[i], from j = 0 to |adj[i]|
-    append new Vertex(i) to the adjListTranspose[j]
+    append new Vertex(i) to the adjListTranspose[j];
 ```
 
 We allocate memory for a new adjacency list that will be the transpose of `G`, this takes `Θ(V)` space. For a given vertex `v`, we do `|adj[v|` work to compute the tranpose, assuming that appending to the tranpose list is a constant operation (like a linked list). If we iterate over all vertices, then our runtime becomes `Θ(|V| + |E|)`.
@@ -271,7 +272,7 @@ DFS-Visit(G, u)
         Print("(u,v) is a Cross Edge")
   color.u = BLACK
   time = time + 1
-  finished.u = time
+  finished.u = time;
 ```
 
 For a depth-first traversal of an undirected graph, recall, there can only exist back and tree edges. If G is undirected, we don't need to make any modifications, note we simply do not label forward or cross edges, nor color a vertex black.
@@ -296,7 +297,7 @@ DFS(G)
 DFS-Visit(G, u)
   ...
   for v ∈ G.u
-      v.cc = u.cc
+      v.cc = u.cc;
 ```
 
 ## 22.3-13
@@ -318,37 +319,49 @@ what's the difference between a singly connected graph and a bipartite graph?
 
 ## 22.4-3
 
-**Q:**
-**A:**
+**Q:** Give an algorithm that determines whether or not a given undirected graph `G = (V,E)` contains a cycle. Your algorithm should run in `O(V)` time, independent of `|E|`.
+**A:** Confused on how to construct an cycle detection algorithm that runs in `O(V)` time. The best I can do is use a modified structure of a depth-first search to detect cycles, however we still traverse the length of adjacency lists of a vertex `v`. Must revisit this question later...
 
 ## 22.4-4
 
-**Q:**
-**A:**
+**Q:** Prove or disprove: If a directed graph `G` contains cycles, then `topological-sort(G)` produces a vertex ordering that **minimizes** the number of "bad" edges that are inconsistent with the ordering produced
+
+**A:** A topological sort of the directed graph with cycles `G` produces a list structure, or a linear ordering of vertices. We consider "bad" edges to be the edges that span from right to left. For a directed graph, there can be many possible valid topological orderings; therefore, consist of different numbers of "bad" edges. Thus, a topological sort does not minimize the number of "bad" edges.
 
 ## 22.4-5
 
-**Q:**
-**A:**
+**Q:** Another way to perform topological sorting on a directed acyclic graph `G = (V,E)` is to repeatedly find a vertex of in-degree 0, output it, and remove it and
+all of its outgoing edges from the graph. Explain how to implement this idea so
+that it runs in time `O(V+E)`. What happens to this algorithm if `G` has cycles?
+
+**A:** We initialize a dictionary (the underlying implementation can be an array, hashmap, etc.) whose key is the vertex id and value is the in-degree count.
+To construct our dictionary, we traverse every adjacency list of every vertex in `O(V+E)` time and use `O(V)` space for storage.
+Then, we initialize a queue. The queue will be used to maintain the collection of vertices with an in-degree of 0.
+We begin our algorithm by enqueuing all vertices with an in-degree of 0 from our dictionary.
+While the queue is not null, dequeue and call the result vertex `v`.
+place `v` in the topological list
+Iterate over the adjacency list of vertex v.
+Lookup each vertex in the dictionary and decrease the in-degree count by 1.
+if the vertex has an in-degree count of 0, add it to the queue.
 
 ## 22.5-1
 
-**Q:**
-**A:**
+**Q:** How can the number of strongly connected components (sccs) of a graph change if a new edge is added?
 
-## 22.5-2
-
-**Q:**
-**A:**
+**A:** The number of strongly connected components of a graph can change if a new edge is added to connect two components. Suppose a graph `G` with strongly connected components <code>C<sub>1</sub></code> and <code>C<sub>2</sub></code>. If a back edge `(i,j)` is added to the graph `G` where <code>i ∈ C<sub>1</sub></code> and <code>j ∈ C<sub>2</sub></code>, then we form a cycle. By definition, a strongly connected component is a set of vertices that are reachable, or in other words, a self-contained cycle. Introducing a back edge `(i,j)` would create a closed loop between sccs <code>C<sub>1</sub></code> and <code>C<sub>2</sub></code> and join them together, therefore, reducing the number of sccs to one.
+In short, if a back edge is added to two sccs, we create a cycle, and the two sccs are reduced to one.
 
 ## 22.5-3
 
-**Q:**
-**A:**
+**Q:** What would happen if we used the original graph, rather than the transpose in the second dfs and scanned the vertices in order of _increasing_ finishing times. Does this simpler algorithm always produce correct results?
+
+**A:** Assume the strongly connected component <code>C<sub>i</sub></code>. Suppose vertex `v` ∈ <code>C<sub>i</sub></code>. `v` has no outgoing edges, but contains incoming edges - some from vertices that are also in <code>C<sub>i</sub></code>, and some that aren't. If we run DFS in order of increasing finish times, this algorithm will assume `v` is a strongly connected component. Observe, DFS will explore all vertices reachable from `v`, but since there are no outgoing edges of `v`, our DFS will declare `v` a strongly connected component when we know that it is _a_ vertex (one of many) contained in <code>C<sub>i</sub></code>.
+
+Another example, suppose our graph consisted of vertices {1,2,3}, and had edges {2,1}, {2,3}, and {3,2}. Our algorithm gives us two sccs, {1} and {2,3}. A possible DFS could start at 2 and explore vertex 3 before vertex 1. Vertex 3's finish time would be lower than vertex 1 and 2. Another possible DFS could start at 3. If we ran the second DFS in order of increasing finish time, our algorithm would return the entire graph as a single strongly connected component, even though this is clearly not the case since there is no path from 1 to 2, or from 1 to 3.
 
 ## 22.5-4
 
-**Q:**
+**Q:** Prove that the number of sccs is the same for G as it is the tranpose of G.
 **A:**
 
 ## 22.5-5
@@ -360,3 +373,7 @@ what's the difference between a singly connected graph and a bipartite graph?
 
 **Q:**
 **A:**
+
+### 22.3-13
+
+### 22.4-2

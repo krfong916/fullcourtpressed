@@ -1,0 +1,17 @@
+{
+  "name": "concurrency-control",
+  "version": "1.0.0",
+  "description": "An exercise of how to handle multiple asynchronous requests inflight, in order to observe the expected behavior.",
+  "main": "async.js",
+  "scripts": {
+    "test": "jest --config ./jest.config.js",
+    "test:watch": "jest --watch --config ./jest.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/preset-env": "^7.13.12",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1"
+  }
+}

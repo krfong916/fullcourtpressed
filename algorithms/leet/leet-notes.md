@@ -57,11 +57,37 @@
   - This will take O(n) space, can we do this in constant space O(1)?
 - hint, this a similar to fibonacci sequence problem
 
+<<<<<<< HEAD
 73: Set Matrix Zeroes
 
 - How can we use the first row and column as markers?
 - Working with matrices are tricky, visualizing this one helps!
 - Edge cases: make sure you're traversing the right row or column, and the full length of each row and column
+=======
+76: Minimum Window Substring
+
+- **Sliding Window**
+- how do we know when we have a valid/invalid window?
+- what are the termination conditions?
+- Careful choosing your loop expressions
+
+78: Subsets
+
+- Classic backtracking problem **Include/Exclude**
+- Objects in java are pass by reference, so mutating the structure will affect all references to it.
+
+79: Word Search
+
+- We must recognize that this problem is a backtracking problem, but also, it's a choose/unchoose problem.
+- In a DFS, our goal is to find if a path is reachable from a source vertex to a destination vertex. However, this is not a graph traversal problem - it's a backtracking problem i.e. the choose/unchoose component.
+- We must find a _distinct_ combination of characters, this indicates the problem is a backtracking problem
+
+90: Subsets II
+
+- Backtracking Include/Exclude with variation - must not contain duplicate sequences. For example, our result set cannot contain [1,4] and [4,1] if the input is [1,4,1]
+- How about sorting the array before computing power set? That way we'll only add unique subsets to our dictionary, and process the numbers in increasing order.
+- Example: Given a set [1,4,1], if we sort initially, we'll have [1,1,4]. We'll never end up with [4,1] only [1,4] -> sorted order maintains the uniqueness of subset creation.
+>>>>>>> f38480d42ee57eb9474b300545de434ff30d142e
 
 94: Binary Tree Inorder Traversal
 
@@ -83,11 +109,33 @@
 - each node in the tree structure contains a letter, a pointer to the child node
 - We identify a word as the ending of a character sequence. We can use and store a boolean value within a local node in a list
 
+112: Path Sum
+
+- A tree problem: case analysis and defining states
+- Recognize self-similarity
+
+124: Binary Tree Maximum Path Sum
+
+- Hint: How do you consider negative values?
+- Hint: What if we use a global variable called max?
+- The direction of you're path does not matter, once a path is chosen cannot have a "backtracking" direction in your path. See https://www.youtube.com/watch?v=mOdetMWwtoI at timestamp 7 min. 25 sec.
+
 125: Valid Palindrome
 
 - Classic string problem
 - Consider the comparison of uppercase and non-uppercase characters
 - Identify what the conditions are to increment/decrement pointers
+
+129: Sum Root To Leaf Numbers
+
+- Translate natural/intuitive way into code
+- Define your base cases - what happens at a leaf node?
+
+133: Clone Graph
+
+- This problem can be solved two ways, BFS and DFS
+- Hint: Regardless of the graph traversal we chooose, what structure can we use to store a cloned node, and build the neighbors list of a cloned node? Note, the presence of the cloned node within this structure implies that we have visited the node already
+- Using a DFS to solve this problem is perhaps the more challenging approach because the algorithm does not follow a textbook DFS "so to speak"
 
 139: Word Break A
 
@@ -109,6 +157,12 @@
 - what is the condition that the minimum is in the left partition or in the right partition?
 - consider when we have a fully rotated cycle (sorted array)
 - and or only a rotated, non-full cycle array
+
+167: Two Sum II - Input array is sorted
+
+- Two pointer solution
+- Pay attention to and leverage the details: ascending sorted, result indices must be non-zero (so 1-indexed)
+- As for verbal performance, speak only when there is an insight or progress in thought process - no empty words
 
 215: Kth largest element in an array
 
@@ -135,10 +189,34 @@
   - The worst-case runtime of the algorithm is O(log n), since we need at most one swap on each level of a heap on the path from the inserted node to the root.
 - finding the median can be calculated in constant time because we impose a median invariant on insertion
 
+303: Range Query Immutable
+
+- The range query immutable structure uses a prefix sum structure, it's an elementary form of dynamic programming.
+- The structure to perform mutable range queries is the more interesting structures i.e. Binary Indexed Trees (Fenwick Trees)
+
+307: Range Query Sum Mutable
+
+- The input is 0-indexed, we must change it to be 1-indexed - this is the source of much frustration and confusion
+- Further, the update operation is a set operation, and not an add operation
+
 326: Power of Three
 
 - this can be solved without recursion or loops
 - how about using logarithm properties?
+
+404: Sum of Left Leaves
+
+- We can process a tree using a queue for BFS
+  - The order that we add to the queue determines the kind of tree traversal (pre, in, post)
+- Recursive, think of the cases:
+  - What is my simple base case?
+  - What variables can I use to define a leaf and if the leaf is a left subtree?
+
+417: Pacific Atlantic Water Flow
+
+- DFS graph traversal
+- What are the conditions that you explore a path? Don't explore a path? When do we mark a cell as visited?
+- It's okay for extra space for an adjancency matrix
 
 436: Non-overlapping Intervals
 
@@ -166,3 +244,22 @@
 - **Revisit**
 - we can use a sliding window for this problem - but this is non-optimal `O(n^2)` worst case
 - how can we use a stack to improve the time complexity to O(n)? and what should the stack store?
+
+819: Most Common Word
+
+- Wow, tests your knowledge of the language
+  - String library, regex matching
+- String manipulation and instantiation of Abstract libraries
+
+937: Reorder Data in Log Files
+
+- This is about knowing the language - java - and the methods available
+- This problem covers:
+  - Case analysis
+  - sorting with comparator class
+  - string and character comparison
+
+1024: Last Stone Weight
+
+- Know thy complexity of a heap! See ds/algo heap-notes for proof
+- And yes, a max-heap is exactly that -> the max is first

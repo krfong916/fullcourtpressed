@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <div>{{counter}} count them fool</div>
+      </div>
+      <div>
+        <button v-on:click="counter += other + 1">Add 1</button>
+      </div>
+      <button v-on:click="other += 1">Add 1</button>
+      <p>Button has been clicked {{counter}} times</p>
+      <div>
+        <div>
+          <p>Update in two places {{other}}</p>
+        </div>
+      </div>
+      <p>Update in two places {{other}}</p>
+      {{other}}
+    </div>
+  </body>
+</html>
