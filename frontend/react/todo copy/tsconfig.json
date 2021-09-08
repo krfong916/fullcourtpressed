@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "esnext", // which javascript features are downleveled and which remain inctact
+    "lib": ["dom", "dom.iterable", "esnext"], // set of default type definitions for APIs found in the browser
+    "allowJs": true, // allow JS files to be imported inside our project, instead of just .ts and .tsx files
+    "skipLibCheck": true, // skip checking of declaration files
+    "esModuleInterop": true, // treat CommonJS/UMD modules similar to es6
+    "allowSyntheticDefaultImports": true, // this allows us to write import React from 'react' or import * as React from 'react'
+    "strict": true, // strict mode, no globals
+    "module": "esnext", // 
+    "moduleResolution": "node", // specify the module resolution strategy
+    "resolveJsonModule": true, // allow importing of modules with the .json extension
+    "isolatedModules": true, // warn if Typescript compiler can't be correctly interpreted by a single-file transpilation process 
+    "noEmit": true, // don't emit output files like js source code or source-maps or declarations. This allows babel to handle converting typescript file to a file that can run inside a js env. This makes typescript a tool for editor integration and sourcecode type-checker
+    "jsx": "react-jsx" // emits .js files with the jsx changed to _jsx calls. 
+  }
+}

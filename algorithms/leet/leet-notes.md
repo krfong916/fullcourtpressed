@@ -57,6 +57,12 @@
   - This will take O(n) space, can we do this in constant space O(1)?
 - hint, this a similar to fibonacci sequence problem
 
+73: Set Matrix Zeroes
+
+- How can we use the first row and column as markers?
+- Working with matrices are tricky, visualizing this one helps!
+- Edge cases: make sure you're traversing the right row or column, and the full length of each row and column
+
 94: Binary Tree Inorder Traversal
 
 - Convert recursive algorithm to iterative
