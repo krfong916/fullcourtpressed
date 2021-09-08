@@ -1,0 +1,65 @@
+/*****************
+ *** Components
+ *****************/
+
+.carousel {
+  height: 600px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.carousel__track-container {
+  height: 100%;
+  position: relative;
+}
+
+.carousel__track {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carousel__track-item {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.carousel__track-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel__button--left {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.carousel__button--right {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.carousel__nav {
+  display: flex;
+  justify-content: center;
+  background-color: pink;
+  padding: 10px 0;
+}
+
+.carousel__nav-mark {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background-color: #595959;
+  margin: 0px 12px;
+}
