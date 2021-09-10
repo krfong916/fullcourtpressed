@@ -107,6 +107,7 @@ function createCarouselNav(numImages, navFrag, carousel, carouselNav) {
     const RIGHT_CAROUSEL_ARROW = 'RIGHT_CAROUSEL_ARROW';
 
     prevButton.classList.add('carousel__button--left');
+    prevButton.classList.add('carousel__button--hidden');
     nextButton.classList.add('carousel__button--right');
 
     prevButton.setAttribute('id', LEFT_CAROUSEL_ARROW);
@@ -147,6 +148,7 @@ function slidePrev(e) {
     e.preventDefault();
     let currentSlide = document.querySelector('.current-carousel-slide');
     let prevSlide = currentSlide.previousSibling;
+
     if (prevSlide !== null) {
       let currentNavMark = document.querySelector('.carousel__nav--current');
       let targetIndex = navMarks.findIndex((mark) => currentNavMark == mark);
@@ -178,6 +180,21 @@ function slideNext(e) {
 }
 
 function moveSlide(track, currentSlide, targetSlide) {
+  let targetSlideIndex = slides.findIndex((slide) => targetSlide == slide);
+  let leftArrow = document.querySelector('.carousel__button--left');
+  let rightArrow = document.querySelector('.carousel__button--right');
+  if (targetSlideIndex == 0) {
+    leftArrow.classList.add('carousel__button--hidden');
+  } else {
+    leftArrow.classList.remove('carousel__button--hidden');
+  }
+
+  if (targetSlideIndex == slides.length - 1) {
+    rightArrow.classList.add('carousel__button--hidden');
+  } else {
+    rightArrow.classList.remove('carousel__button--hidden');
+  }
+
   track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
   currentSlide.classList.remove('current-carousel-slide');
   targetSlide.classList.add('current-carousel-slide');
