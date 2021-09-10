@@ -1,68 +1,13 @@
 <!doctype html>
 <html>
   <head>
-    <link rel=stylesheet href="index.css">
+    <link rel=stylesheet href="css/index.css">
   </head>
   <body>
     <div class="carousel">
-      <div class="carousel__track-container">
-        <ul class="carousel__track">
-          <li class="carousel__track-item">
-            <img class="carousel__track-image" src="naru-fan-art-1.jpeg" alt="Vignette of Naruto characters">
-          </li>
-          <li class="carousel__track-item">  
-            <img class="carousel__track-image" src="naru-fan-art-2.jpeg" alt="Jiraiya grinning, Minato pointing and explaining, and Naruto laughing while they all look at a scrapbook of photos">
-          </li>
-          <li class="carousel__track-item">  
-            <img class="carousel__track-image" src="nd68ak3x17w61.jpg" alt="Kakashi and Naruto in their Hokage outfit smiling in front of the Hokage Rock">
-          </li>
-        </ul>
-      </div>
-      <button class="carousel__button--left">
-        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M13.293 6.293L7.586 12 13.293 17.707 14.707 16.293 10.414 12 14.707 7.707z"></path></svg>
-      </button>
-      <button class="carousel__button--right">
-        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 17.707L16.414 12 10.707 6.293 9.293 7.707 13.586 12 9.293 16.293z"></path></svg>
-      </button>
-      <div class="carousel__nav">
-        <button class="carousel__nav-mark"></button>
-        <button class="carousel__nav-mark"></button>
-        <button class="carousel__nav-mark"></button>
-      </div>
+      <div class="carousel__track-container"></div>
+      <div class="carousel__nav"></div>
     </div>
-    <script type="text/javascript">
-    </script>
+    <script type="text/javascript" src="js/index.js"></script>
   </body>
 </html>
-
-
-<!-- 
-UX: touch-enable the carousel
-
-ARROW
-mouse events:
-  - when we hover
-    - changes opacity of arrow
-    - displays a gesture to go left or right
-keyboard events:
-  - when we click
-    - changes to the next image
-ui
-  - if there are no more images to the left and right, then don't display the arrow
-
-CAROUSEL NAV BUTTONS
-mouse events:
-  - when we hover over a nav-button that is not the active one
-    - the nav button has a darker color
-keyboard events:
-  - when we click
-    - changes to the image that corresponds with the dot
-ui
-  - the dot that contains the active image is black
-
-LOADING IMAGES
-- Load images from 3rd party source instead of hard-code
-- If there is one image, then we don't assign dots or arrows
-- If there is more than one image, assign dots and arrows
--->
-
