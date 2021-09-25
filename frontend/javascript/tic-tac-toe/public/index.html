@@ -1,0 +1,16 @@
+<doctype html>
+  <html>
+    <head>
+      <title>Tic-Tac-Toe 🎲</title>
+      <script>
+        // hide HRM logs because they're distracting
+        const log = console.log
+        console.log = (...args) =>
+          args[0]?.includes?.('[HMR]') ? null : log(...args)
+      </script>
+    </head>
+    <body>
+      <noscript>You need to enable javascript in order to run this application</noscript>
+      <div id="app"></div>
+    </body>
+  </html>
