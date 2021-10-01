@@ -1,0 +1,29 @@
+{
+  "name": "giphy",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "webpack build",
+    "dev": "webpack serve --open",
+    "start": "webpack -p && node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "html-webpack-plugin": "^5.3.1",
+    "json-server": "^0.16.3",
+    "prettier": "^2.2.1",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.6",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.3.0",
+    "mini-css-extract-plugin": "^2.3.0",
+    "style-loader": "^3.3.0",
+    "webpack": "^5.55.1"
+  }
+}

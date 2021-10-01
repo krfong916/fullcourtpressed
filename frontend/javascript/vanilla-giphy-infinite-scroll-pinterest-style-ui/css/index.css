@@ -1,0 +1,12 @@
+.gif-grid {
+  display: grid;
+  box-sizing: border-box;
+  grid-auto-rows: 1px;
+  justify-content: center;
+}
+
+.gif-container {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+}
